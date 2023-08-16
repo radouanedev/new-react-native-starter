@@ -13,7 +13,7 @@ const createObytesApp = async () => {
   }
 
   // create a new project based on obytes template
-  const cloneStarter = `git clone --depth=1  https://github.com/radouanedev/react-native-starter.git ${projectName}`
+  const cloneStarter = `git clone --depth=1  https://github.com/radouanedev/new-react-native-starter ${projectName}`
 
   // run init command and clean up project folder
   await runCommand(cloneStarter, {

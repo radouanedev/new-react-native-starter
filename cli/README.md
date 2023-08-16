@@ -1,16 +1,21 @@
-NEW REACT NATIVE STARTER
-
 <p align="center">
     <img alt="React Native Template Obytes" src="https://user-images.githubusercontent.com/11137944/93101697-808bc580-f6a2-11ea-8ce3-482be6ca456a.png" width="200" />
-</p>
 
+</p>
 <h1 align="center">
-  React Native Template Radouane
+  React Native Template Obytes
 </h1>
 
 ![expo](https://img.shields.io/github/package-json/dependency-version/obytes/react-native-template-obytes/expo?label=expo) ![GitHub Repo stars](https://img.shields.io/github/stars/obytes/react-native-template-obytes) ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/obytes/react-native-template-obytes) ![GitHub issues](https://img.shields.io/github/issues/obytes/react-native-template-obytes) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/obytes/react-native-template-obytes)
 
 📱 A template for your next React Native project 🚀, Made with developer experience and performance first: Expo,TypeScript,tailwindcss, Husky, Lint-Staged, react-navigation, react-query, react-hook-form, I18n.
+
+# 🚀 Quick start
+
+```sh
+npx create-obytes-app@latest MyApp
+
+```
 
 # Overview
 
@@ -136,12 +141,3 @@ If you have any questions about the starter and want answers, please check out t
 ## 🔖 License
 
 This project is MIT licensed.
-
-
-
-
-## ✍️ Notes
-
-- (react-native-restart) When switching to native development i need this for restart after changing the language 
-- (react-native-avoid-softinput) This native module may needed in non Expo Go mode
-- (@commitlint/cli) commitlint checks if your commit messages meet the conventional commit format by (@commitlint/config-conventional)
