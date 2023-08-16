@@ -1,43 +1,37 @@
 import 'react-native-gesture-handler'
 
-import { useFonts } from 'expo-font'
-import { StatusBar } from 'expo-status-bar'
-import React, { useEffect } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
+import * as SplashScreen from 'expo-splash-screen'
+import React from 'react'
+import { StyleSheet } from 'react-native'
+import FlashMessage from 'react-native-flash-message'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
-import { Text } from '@/ui'
+import { APIProvider } from '@/api'
+import { hydrateAuth, loadSelectedTheme } from '@/core'
+import { RootNavigator } from '@/navigation'
 
-export default function App() {
-  const [loaded, error] = useFonts({
-    Poppins: require('../assets/fonts/Poppins.ttf'),
-    'Poppins-Medium': require('../assets/fonts/Poppins-Medium.ttf'),
-    'Poppins-SemiBold': require('../assets/fonts/Poppins-SemiBold.ttf'),
-    'Poppins-Bold': require('../assets/fonts/Poppins-Bold.ttf'),
-  })
+hydrateAuth()
+loadSelectedTheme()
+SplashScreen.preventAutoHideAsync()
 
-  useEffect(() => {
-    if (error) throw error
-  }, [error])
-
-  if (!loaded) return null
-
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text className="font-normal">
-        Open up App.tsx to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={styles.container}>
+      <BottomSheetModalProvider>
+        <APIProvider>
+          <RootNavigator />
+          <FlashMessage position="top" />
+        </APIProvider>
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })
 
-// create function that replace string by
+export default App

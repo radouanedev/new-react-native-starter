@@ -3,15 +3,19 @@ import React from 'react'
 import type { TextProps } from 'react-native'
 import { StyleSheet, Text as NNText } from 'react-native'
 
+import type { TxKeyPath } from '@/core'
+import { isRTL } from '@/core'
+import { translate } from '@/core'
+
 const SText = styled(NNText)
 
 interface Props extends TextProps {
   variant?: keyof typeof textVariants
   className?: string
-  text?: string
+  tx?: TxKeyPath
 }
 
-const fontName = 'poppins'
+// const fontName = 'poppins'
 
 export const textVariants = {
   defaults: 'text-base text-black  dark:text-white font-poppins  font-normal',
@@ -30,11 +34,11 @@ export const Text = ({
   variant = 'md',
   className = '',
   style,
-  text,
+  tx,
   children,
   ...props
 }: Props) => {
-  const content = text ? text : children
+  const content = tx ? translate(tx) : children
 
   return (
     <SText
@@ -44,7 +48,10 @@ export const Text = ({
       ${textVariants[variant]}
       ${className}
     `)}
-      style={StyleSheet.flatten([{ writingDirection: 'ltr' }, style])}
+      style={StyleSheet.flatten([
+        { writingDirection: isRTL ? 'rtl' : 'ltr' },
+        style,
+      ])}
       {...props}
     >
       {content}
@@ -54,7 +61,7 @@ export const Text = ({
 
 const extractClassName = (className: string): string => {
   return className
-    .replaceAll('font-medium', 'font-' + fontName + '-medium')
-    .replaceAll('font-semibold', 'font-' + fontName + '-semibold')
-    .replaceAll('font-bold', 'font-' + fontName + '-bold')
+  // .replaceAll('font-medium', 'font-' + fontName + '-medium')
+  // .replaceAll('font-semibold', 'font-' + fontName + '-semibold')
+  // .replaceAll('font-bold', 'font-' + fontName + '-bold')
 }

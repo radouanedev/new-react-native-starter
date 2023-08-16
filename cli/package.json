@@ -1,0 +1,36 @@
+{
+  "name": "create-rnrad-app",
+  "version": "1.0.2",
+  "description": "Rad expo starter cli",
+  "homepage": "https://github.com/radouanedev/react-native-starter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radouanedev/react-native-starter"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "bin": "./index.js",
+  "files": [
+    "index.js",
+    "utils.js"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "chalk-animation": "^1.6.0",
+    "fs-extra": "^10.1.0",
+    "nanospinner": "^1.0.0"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "template",
+    "react-native-starter",
+    "expo-starter",
+    "react-native-boilerplate",
+    "expo-boilerplate",
+    "cli",
+    "rad"
+  ]
+}
